@@ -7,3 +7,5 @@ Ejecutar el siguiente comando para instalas las dependencias:
     npm install
 
 ## 2. Ejecución 
+Para ejecutar, debemos abrir abrir una terminal y escribir: 
+    npx cypress open
