@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('iniciarSesion', (usuario, password) =>{
+     
+     //Ingresar dato valido en Username 
+     cy.get('#user-name').type(usuario); 
+     
+     //Ingresar dato valido en Password 
+     cy.get('#password').type(password); 
+     
+     //Hacer click en el boton Login
+     cy.contains('Login').click();
+
+     //Comprobar que el login fue exitoso
+     cy.contains('Products').should('be.visible');
+ });
