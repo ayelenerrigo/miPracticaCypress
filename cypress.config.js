@@ -6,7 +6,9 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
 
-    
+    //resolucion de pantalla estandar - Aplica para todos los scripts
+    // viewportWidth:382,
+    // viewportHeight: 587,
 
 
   },

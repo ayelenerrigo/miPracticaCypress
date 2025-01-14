@@ -22,6 +22,8 @@ describe('Swage Labs', () => {
     it ('Test-03: Inicio de sesion usando comandos', () =>{
         cy.visit('https://www.saucedemo.com/');
 
+        cy.wait(100000);
+
         //invocar al comando iniciarSesion
         cy.iniciarSesion('standard_user', 'secret_sauce' )
     });
