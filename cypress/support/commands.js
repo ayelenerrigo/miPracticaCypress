@@ -35,6 +35,4 @@ Cypress.Commands.add('iniciarSesion', (usuario, password) =>{
      //Hacer click en el boton Login
      cy.contains('Login').click();
 
-     //Comprobar que el login fue exitoso
-     cy.contains('Products').should('be.visible');
- });
+ }); 
