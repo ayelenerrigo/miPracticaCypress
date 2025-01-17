@@ -8,6 +8,7 @@
     "test-run": "cypress run",
     "happyPath-test-run": "cypress run --env tags=@happyPath",
     "negative-test-run": "cypress run --env tags=@negative",
+    "demoblaze-test-run": "cypress run --env tags=@DemoBlanze",
     "regression-test-run": "cypress run --env tags= @regression",
     "test-run-edge": "cypress run --browser edge",
     "test-run-chrome": "cypress run --headed --browser chrome"

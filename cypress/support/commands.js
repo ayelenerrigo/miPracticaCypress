@@ -36,3 +36,40 @@ Cypress.Commands.add('iniciarSesion', (usuario, password) =>{
      cy.contains('Login').click();
 
  }); 
+
+
+ Cypress.Commands.add('agregarAlCarrito',(parteDelNombre)=>{
+    //Hacer click en el nombre del producto (parte del nombre)
+    cy.contains(parteDelNombre).click();
+
+    //Validar que la URL contenga prod.html luego de seleccionar el producto 
+    cy.url().should('include', 'prod.html'); 
+
+    //Hacer click en Add to Cart
+    cy.contains('Add to cart').click();
+
+    
+
+ });
+
+
+ Cypress.Commands.add('completarComprar',({datosCompra})=>{
+    //Ir al carrito de compras
+    cy.get('#cartur').click();
+    
+    //Hacer click en Place Order
+    cy.contains('Place Order').click();
+
+    //Completar el formulario
+    cy.get('#name').type(datosCompra.nombre);
+    cy.get('#country').type(datosCompra.pais);
+    cy.get('#city').type(datosCompra.ciudad);
+    cy.get('#card').type(datosCompra.tarjeta);
+    cy.get('#month').type(datosCompra.mes);
+    cy.get('#year').type(datosCompra.año);
+
+    //Confirmar la compra 
+    cy.contains('Purchase').click();
+    cy.wait(4000);
+
+ });
