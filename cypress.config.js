@@ -24,7 +24,15 @@ export default defineConfig({
     stepDefinitions: 'cypress/e2e/steps_definitions/',
     },
     chromeWebSecurity: false,
-
+    video:true,
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: 'cypress/results', //donde se guarda
+      charts: true, //graficos
+      overwrite: false, //que no se sobreescriba
+      html: true, //formato
+      json: false, //no lo queremos en el formato json
+    },
   e2e: {
     setupNodeEvents,
     supportFile: "cypress/support/e2e.js",
