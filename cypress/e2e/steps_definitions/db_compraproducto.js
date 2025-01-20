@@ -37,7 +37,7 @@ When ('elijo la categoria {string} y selecciono el producto que contenga {string
 
     //Confirmar la compra 
     cy.contains('Purchase').click();
-    cy.wait(4000);
+    //cy.wait(4000);
 
 });
 
@@ -54,6 +54,27 @@ When ('selecciono la categoria {string} y selecciono el producto que contenga {s
    
 
 });
+
+When ('selecciono la categoria {string} , los productos de la lista {string} y completo la compra', (categoria, archivoCSV, listaDatos) =>{
+    //selecciono categoria
+    cy.contains(categoria).click();
+
+    //Agregar los productos leyendolos desde el CSV
+    cy.leerCSV(archivoCSV, ',').then(datosCSV => {
+        datosCSV.forEach(parteDelNombre => {
+            cy.agregarAlCarrito(parteDelNombre[0]);
+        })
+    });
+     
+ 
+    //Completar la compra 
+    //recorre la lista entendiendo que pueden ser varias filas (varios clientes)
+    listaDatos.hashes().forEach((datosCompra) =>{
+     cy.completarComprar({datosCompra: datosCompra,});
+    });
+    
+ 
+ });
 
 Then ('debo ver el mensaje de compra exitosa', () => {
     cy.contains('Thank you for your purchase!').should('exist');

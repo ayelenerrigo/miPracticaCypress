@@ -48,7 +48,8 @@ Cypress.Commands.add('iniciarSesion', (usuario, password) =>{
     //Hacer click en Add to Cart
     cy.contains('Add to cart').click();
 
-    
+    //Volver a la pagina de inicio
+    cy.contains('Home').click();    
 
  });
 
@@ -70,6 +71,19 @@ Cypress.Commands.add('iniciarSesion', (usuario, password) =>{
 
     //Confirmar la compra 
     cy.contains('Purchase').click();
-    cy.wait(4000);
+    //cy.wait(4000);
 
+ });
+
+ Cypress.Commands.add('leerCSV', (rutaArchivo, separador) => {
+   return cy.readFile(rutaArchivo).then((contenido) => { //lee el archivo y acciona sobre el contenido
+      return contenido.trim().split('\n').map(linea => linea.split(separador).map(item => item.trim())); //si no sabe que separador se usa, si sabes que es una ',' usas el de abajo
+      //return contenido.trim().split('\n').map(linea => linea.split(',').map(item => item.trim())); 
+      /* 
+      trim: quita espacios del principio y el final
+      split('\n') - (',') : en cada enter/separador lo corta y es un dato/indice del arreglo
+      map: recorre cada columna y hace un arreglo adicional 
+      */
+
+   });
  });
