@@ -1,5 +1,5 @@
 describe('Swage Labs', () => {
-    /*
+    
     it('Test-01: Login con datos validos', () => {
 
         //Abrir la pagina de prueba
@@ -18,7 +18,7 @@ describe('Swage Labs', () => {
         //Comprobar que el login fue exitoso
         cy.contains('Products').should('be.visible');
     });
-*/
+
     it ('Test-03: Inicio de sesion usando comandos', () =>{
         cy.visit('https://www.saucedemo.com/');
 

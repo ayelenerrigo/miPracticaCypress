@@ -9,3 +9,5 @@ Ejecutar el siguiente comando para instalas las dependencias:
 ## 2. Ejecución 
 Para ejecutar, debemos abrir abrir una terminal y escribir: 
     npx cypress open
+    o
+    npx script (configurado en package.json)
